@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chioma Cletus 💘</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #ffeef5 0%, #fff0f8 50%, #ffe4f0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 45, 122, 0.25);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(255, 45, 122, 0.15);
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 50px;
+      background: rgba(255, 45, 122, 0.12);
+      border: 1px solid rgba(255, 45, 122, 0.25);
+      font-weight: 700;
+      color: #c2185b;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #222;
+      margin: 10px 0;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    p {
+      color: #555;
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 15px 0;
+    }
+
+    .photo-container {
+      margin: 25px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 45, 122, 0.15);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      background: #fff;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 500px;
+    }
+
+    .button-area {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      margin: 25px 0;
+      flex-wrap: wrap;
+      position: relative;
+      min-height: 80px;
+    }
+
+    button {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #yesBtn {
+      background: linear-gradient(135deg, #ff2d7a 0%, #ff1654 100%);
+      color: white;
+      box-shadow: 0 12px 30px rgba(255, 45, 122, 0.35);
+    }
+
+    #yesBtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 45, 122, 0.45);
+    }
+
+    #yesBtn:active {
+      transform: translateY(-1px);
+    }
+
+    #noBtn {
+      background: white;
+      color: #333;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .footer-text {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #777;
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Hearts animation */
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 4s ease-in forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Yes screen styles */
+    .success-title {
+      font-size: 42px;
+      color: #ff2d7a;
+      font-weight: 900;
+      margin: 15px 0;
+      animation: pulse 1.5s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .success-message {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.7;
+      margin: 20px 0;
+    }
+
+    .video-container {
+      margin: 25px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      display: block;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      padding: 15px 28px;
+      border-radius: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+
+    .replay-btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      padding: 15px 28px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .replay-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 24px;
+      padding: 35px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-content h2 {
+      font-size: 28px;
+      color: #222;
+      margin-bottom: 15px;
+      font-weight: 900;
+    }
+
+    .modal-content p {
+      font-size: 17px;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .modal-yes-btn {
+      background: linear-gradient(135deg, #ff2d7a 0%, #ff1654 100%);
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 45, 122, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .modal-yes-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .modal-no-btn {
+      background: white;
+      color: #333;
+      padding: 14px 28px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .modal-no-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .success-title {
+        font-size: 34px;
+      }
+
+      .card {
+        padding: 25px;
+      }
+
+      button {
+        padding: 14px 24px;
+        font-size: 16px;
+      }
+
+      .video-container iframe {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hearts animation container -->
+  <div class="hearts-container" id="heartsContainer"></div>
+
+  <div class="container">
+    <!-- Main Question Card -->
+    <div class="card" id="questionCard">
+      <div class="badge">💌 Message for Chioma Cletus</div>
+      
+      <h1>Chioma… will you be my Valentine? 💘</h1>
+      
+      <p>
+        Be honest 😌<br>
+        But just know… the "No" button is behaving like an <strong>Amai woman</strong> 😂
+      </p>
+
+      <div class="photo-container">
+        <img src="photo.jpg" alt="Our Special Moment Together" id="photoImg">
+      </div>
+
+      <div class="button-area" id="buttonArea">
+        <button id="yesBtn">Yes 😍</button>
+        <button id="noBtn">No 🙄</button>
+      </div>
+
+      <div class="footer-text">
+        If you press "No", Burna Boy will personally be disappointed in you 😭🎶
+      </div>
+    </div>
+
+    <!-- Success Card -->
+    <div class="card hidden" id="successCard">
+      <div class="badge">🎉 Approved!</div>
+      
+      <div class="success-title">OMGGG YESSS 😭❤️</div>
+      
+      <p class="success-message">
+        Chioma Cletus… you just made me the happiest person alive 😭💘<br><br>
+        You're my favorite human.<br>
+        My real life "For My Hand" kind of love 🥰🎶<br><br>
+        I love you more than shawarma… and that's serious 😭
+      </p>
+
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/O2VtUn59hcw" 
+          title="Burna Boy - For My Hand" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="action-buttons">
+        <a href="https://wa.me/2348137875279?text=Yessss%20%F0%9F%98%8D%E2%9D%A4%EF%B8%8F%20I%E2%80%99m%20your%20Valentine!%20%F0%9F%98%82%F0%9F%92%98" 
+           class="whatsapp-btn" 
+           target="_blank">
+          💬 Text me YES on WhatsApp
+        </a>
+        <button class="replay-btn" id="replayBtn">Replay 😂</button>
+      </div>
+
+      <div class="footer-text">
+        PS: You can't change your mind. It has been saved in the cloud 😌☁️
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal-content" id="modalContent">
+      <h2>Babe are you sure? 😭</h2>
+      <p>
+        This is your last chance o…<br>
+        Don't let me start crying like a broken speaker 😭💔
+      </p>
+      
+      <div class="modal-buttons">
+        <button class="modal-yes-btn" id="modalYesBtn">Okay yes 😍</button>
+        <button class="modal-no-btn" id="modalNoBtn">I'm still thinking 🙄</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get all elements
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const questionCard = document.getElementById('questionCard');
+    const successCard = document.getElementById('successCard');
+    const buttonArea = document.getElementById('buttonArea');
+    const heartsContainer = document.getElementById('heartsContainer');
+    const replayBtn = document.getElementById('replayBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = document.getElementById('modalContent');
+    const modalYesBtn = document.getElementById('modalYesBtn');
+    const modalNoBtn = document.getElementById('modalNoBtn');
+    const photoImg = document.getElementById('photoImg');
+
+    // Counter for "No" button clicks
+    let noClickCount = 0;
+
+    // Handle image loading error
+    photoImg.addEventListener('error', function() {
+      this.parentElement.innerHTML = '<div style="padding: 40px; color: #999; font-size: 14px;">📸 Add your photo here<br>(Save it as "photo.jpg" in the same folder)</div>';
+    });
+
+    // Make "No" button run away
+    function moveNoButton() {
+      const areaWidth = buttonArea.offsetWidth;
+      const areaHeight = buttonArea.offsetHeight;
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+      
+      const maxX = Math.max(0, areaWidth - btnWidth - 20);
+      const maxY = Math.max(0, areaHeight - btnHeight - 20);
+      
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+      
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+    }
+
+    // "No" button hover - makes it run away
+    noBtn.addEventListener('mouseenter', function() {
+      moveNoButton();
+    });
+
+    // "No" button touch - makes it run away
+    noBtn.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    // "No" button click - show modal after 3 attempts
+    noBtn.addEventListener('click', function() {
+      noClickCount++;
+      
+      if (noClickCount >= 3) {
+        showModal();
+      } else {
+        moveNoButton();
+      }
+    });
+
+    // "Yes" button click - go straight to success
+    yesBtn.addEventListener('click', function() {
+      showSuccess();
+    });
+
+    // Modal "Okay yes" button
+    modalYesBtn.addEventListener('click', function() {
+      hideModal();
+      showSuccess();
+    });
+
+    // Modal "I'm still thinking" button
+    modalNoBtn.addEventListener('click', function() {
+      hideModal();
+      moveNoButton();
+    });
+
+    // Click outside modal to close
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) {
+        hideModal();
+      }
+    });
+
+    // Prevent clicks inside modal from closing it
+    modalContent.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // Replay button
+    replayBtn.addEventListener('click', function() {
+      resetEverything();
+    });
+
+    // Show modal
+    function showModal() {
+      modalOverlay.classList.remove('hidden');
+    }
+
+    // Hide modal
+    function hideModal() {
+      modalOverlay.classList.add('hidden');
+    }
+
+    // Show success screen
+    function showSuccess() {
+      questionCard.classList.add('hidden');
+      successCard.classList.remove('hidden');
+      startHearts();
+    }
+
+    // Reset everything
+    function resetEverything() {
+      successCard.classList.add('hidden');
+      questionCard.classList.remove('hidden');
+      heartsContainer.innerHTML = '';
+      noClickCount = 0;
+      noBtn.style.position = 'relative';
+      noBtn.style.left = '';
+      noBtn.style.top = '';
+    }
+
+    // Start hearts animation
+    function startHearts() {
+      const heartEmojis = ['💖', '💘', '❤️', '💕', '😍', '🥰', '💗', '💓', '💝', '🎶'];
+      let count = 0;
+      
+      const interval = setInterval(function() {
+        createHeart(heartEmojis);
+        count++;
+        
+        if (count >= 50) {
+          clearInterval(interval);
+        }
+      }, 100);
+    }
+
+    // Create a single heart
+    function createHeart(emojis) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.bottom = '-30px';
+      heart.style.fontSize = (18 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+      
+      heartsContainer.appendChild(heart);
+      
+      setTimeout(function() {
+        heart.remove();
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
